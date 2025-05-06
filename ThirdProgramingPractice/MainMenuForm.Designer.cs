@@ -30,11 +30,17 @@
         {
             NewBudgetButton = new Button();
             BudgetsListBox = new ListBox();
+            AmountTextBox = new TextBox();
+            IncomeTextBox = new TextBox();
+            ExpensesTextBox = new TextBox();
+            IncomeListBox = new ListBox();
+            ExpensesListBox = new ListBox();
+            BudgetNameLabel = new Label();
             SuspendLayout();
             // 
             // NewBudgetButton
             // 
-            NewBudgetButton.Location = new Point(161, 105);
+            NewBudgetButton.Location = new Point(12, 12);
             NewBudgetButton.Name = "NewBudgetButton";
             NewBudgetButton.Size = new Size(95, 23);
             NewBudgetButton.TabIndex = 0;
@@ -46,27 +52,94 @@
             // 
             BudgetsListBox.FormattingEnabled = true;
             BudgetsListBox.ItemHeight = 15;
-            BudgetsListBox.Location = new Point(162, 134);
+            BudgetsListBox.Location = new Point(12, 41);
             BudgetsListBox.Name = "BudgetsListBox";
-            BudgetsListBox.Size = new Size(94, 244);
+            BudgetsListBox.Size = new Size(94, 604);
             BudgetsListBox.TabIndex = 1;
             BudgetsListBox.SelectedIndexChanged += BudgetsListBox_SelectedIndexChanged;
+            // 
+            // AmountTextBox
+            // 
+            AmountTextBox.Location = new Point(126, 41);
+            AmountTextBox.Name = "AmountTextBox";
+            AmountTextBox.Size = new Size(100, 23);
+            AmountTextBox.TabIndex = 2;
+            AmountTextBox.Text = "Amount:";
+            AmountTextBox.TextChanged += AmountTextBox_TextChanged;
+            // 
+            // IncomeTextBox
+            // 
+            IncomeTextBox.Location = new Point(126, 70);
+            IncomeTextBox.Name = "IncomeTextBox";
+            IncomeTextBox.Size = new Size(100, 23);
+            IncomeTextBox.TabIndex = 3;
+            IncomeTextBox.Text = "Income:";
+            // 
+            // ExpensesTextBox
+            // 
+            ExpensesTextBox.Location = new Point(252, 70);
+            ExpensesTextBox.Name = "ExpensesTextBox";
+            ExpensesTextBox.Size = new Size(100, 23);
+            ExpensesTextBox.TabIndex = 4;
+            ExpensesTextBox.Text = "Expneses:";
+            ExpensesTextBox.TextChanged += ExpensesTextBox_TextChanged;
+            // 
+            // IncomeListBox
+            // 
+            IncomeListBox.FormattingEnabled = true;
+            IncomeListBox.ItemHeight = 15;
+            IncomeListBox.Location = new Point(126, 97);
+            IncomeListBox.Name = "IncomeListBox";
+            IncomeListBox.Size = new Size(100, 544);
+            IncomeListBox.TabIndex = 5;
+            // 
+            // ExpensesListBox
+            // 
+            ExpensesListBox.FormattingEnabled = true;
+            ExpensesListBox.ItemHeight = 15;
+            ExpensesListBox.Location = new Point(252, 97);
+            ExpensesListBox.Name = "ExpensesListBox";
+            ExpensesListBox.Size = new Size(100, 544);
+            ExpensesListBox.TabIndex = 6;
+            // 
+            // BudgetNameLabel
+            // 
+            BudgetNameLabel.AutoSize = true;
+            BudgetNameLabel.Location = new Point(126, 16);
+            BudgetNameLabel.Name = "BudgetNameLabel";
+            BudgetNameLabel.Size = new Size(127, 15);
+            BudgetNameLabel.TabIndex = 7;
+            BudgetNameLabel.Text = "Selected Budget Name";
+            BudgetNameLabel.Click += BudgetNameLabel_Click;
             // 
             // MainMenuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1345, 660);
+            Controls.Add(BudgetNameLabel);
+            Controls.Add(ExpensesListBox);
+            Controls.Add(IncomeListBox);
+            Controls.Add(ExpensesTextBox);
+            Controls.Add(IncomeTextBox);
+            Controls.Add(AmountTextBox);
             Controls.Add(BudgetsListBox);
             Controls.Add(NewBudgetButton);
             Name = "MainMenuForm";
             Text = "MainMenu";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button NewBudgetButton;
         private ListBox BudgetsListBox;
+        private TextBox AmountTextBox;
+        private TextBox IncomeTextBox;
+        private TextBox ExpensesTextBox;
+        private ListBox IncomeListBox;
+        private ListBox ExpensesListBox;
+        private Label BudgetNameLabel;
     }
 }
