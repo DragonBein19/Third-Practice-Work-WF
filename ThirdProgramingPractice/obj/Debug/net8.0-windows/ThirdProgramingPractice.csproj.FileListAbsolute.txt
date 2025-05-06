@@ -112,3 +112,4 @@ C:\Users\Public\Projects\Third-Practice-Work-WF\ThirdProgramingPractice\obj\Debu
 C:\Users\Public\Projects\Third-Practice-Work-WF\ThirdProgramingPractice\obj\Debug\net8.0-windows\ThirdProgramingPractice.pdb
 C:\Users\Public\Projects\Third-Practice-Work-WF\ThirdProgramingPractice\obj\Debug\net8.0-windows\ThirdProgramingPractice.genruntimeconfig.cache
 C:\Users\Public\Projects\Third-Practice-Work-WF\ThirdProgramingPractice\obj\Debug\net8.0-windows\ref\ThirdProgramingPractice.dll
+C:\Users\Administrator\source\repos\Tre-ia-praktin--darba\ThirdProgramingPractice\obj\Debug\net8.0-windows\ThirdProgramingPractice.TransactionForm.resources

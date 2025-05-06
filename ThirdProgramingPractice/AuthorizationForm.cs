@@ -12,44 +12,46 @@ using ThirdProgramingPractice.DB;
 
 namespace ThirdProgramingPractice
 {
+    /// <summary>
+    ///  Class responsible for the functionality of the form. It handles user authentication using login 
+    ///  and password to interact with the "account" table and allows navigation to the user registration 
+    ///  window.
+    /// </summary>
     public partial class AuthorizationForm : Form
-    {
-        DataBase dataBase = new DataBase();
-        MySqlCommands_account account = new MySqlCommands_account();       
-
+    {      
         public AuthorizationForm()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        ///  Method responsible for user authentication. Using the entered "login" and "password", the method
+        /// retrieves the "ID" from the "account" table and checks: if the "ID" is 0, it means there is 
+        /// no user with such login or password. If the "ID" is not 0, it means a user with that "ID" 
+        /// exists. The user's "ID" is then saved and passed to the "MainMenuForm" class.
+        /// </summary>
         private void SignInButton_Click(object sender, EventArgs e)
         {
-            string QueryFindAccount = "SELECT * FROM `account` WHERE `Login` = @Login AND `Password` = @Password";
+            DataBase dataBase = new DataBase();
+            MySqlCommands_accountTable account = new MySqlCommands_accountTable();
 
             dataBase.OpenConnection();
+
+            int accountID = account.SelectAccountID(dataBase.GetConnection(), LoginTextBox.Text.ToString(), PasswordTextBox.Text.ToString());
+
             try
             {
-                MySqlCommand CheckAccountInDataBase = new MySqlCommand(QueryFindAccount, dataBase.GetConnection());
-
-                CheckAccountInDataBase.Parameters.Add("@Login", MySqlDbType.VarChar).Value = LoginTextBox.Text.ToString();
-                CheckAccountInDataBase.Parameters.Add("@Password", MySqlDbType.VarChar).Value = PasswordTextBox.Text.ToString();
-
-                using(MySqlDataReader reader = CheckAccountInDataBase.ExecuteReader())
+                if (accountID != 0)
                 {
-                    if(reader.Read())
-                    {
-                        reader.Close();
-                        this.Hide();
-                        dataBase.OpenConnection();
-                        account.Structure(LoginTextBox, PasswordTextBox);
-                        MainMenuForm mainMenuForm = new MainMenuForm(account.SelectIDFromAccount(dataBase.GetConnection()));
-                        dataBase.CloseConnection();
-                        mainMenuForm.ShowDialog();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Inccorect login or password");
-                    }
+                    this.Hide();
+                    MainMenuForm mainMenuForm = new MainMenuForm(accountID);
+                    dataBase.CloseConnection();
+                    mainMenuForm.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Inccorect login or password");
                 }
             }
             catch (Exception ex)
@@ -59,11 +61,16 @@ namespace ThirdProgramingPractice
             dataBase.CloseConnection();
         }
 
+        /// <summary>
+        /// Method that opens the registration window while hiding the login window. When the registration 
+        /// window is closed, the login window will be shown again.
+        /// </summary>
         private void RegistrationButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             RegistrationForm registrationForm = new RegistrationForm();
-            registrationForm.Show();
+            registrationForm.ShowDialog();
+            this.Show();
         }
     }
 }

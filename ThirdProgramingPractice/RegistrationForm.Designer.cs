@@ -199,7 +199,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(566, 461);
+            ClientSize = new Size(392, 351);
             Controls.Add(ErrorMassageLabel);
             Controls.Add(RegisterButton);
             Controls.Add(RepeadPaswordTextBox);

@@ -13,21 +13,27 @@ using ThirdProgramingPractice.DB;
 namespace ThirdProgramingPractice
 {
     public partial class RegistrationForm : Form
-    {
-        private DataBase dataBase = new DataBase();
-        private MySqlCommands_account mySqlCommands_Account = new MySqlCommands_account();
-        private MySqlCommands_UserInfo mySqlCommands_UserInfo = new MySqlCommands_UserInfo();
-        private MySqlCommands_UserProfile mySqlCommands_UserProfile = new MySqlCommands_UserProfile();
-        private int AccountID;
-        
+    {       
         public RegistrationForm()
         {
             InitializeComponent();
             ErrorMassageLabel.Text = " ";
         }
 
+        /// <summary>
+        /// Method triggered after clicking the registration button. It performs validation to ensure 
+        /// there are no empty fields and that the entered passwords match. Then, new data is created 
+        /// in the "account", "user info", and "user profile" tables. After that, the foreign keys in 
+        /// the "account" table are filled in.
+        /// </summary>
         private void RegisterButton_Click(object sender, EventArgs e)
         {
+        MySqlCommands_accountTable accountTable = new MySqlCommands_accountTable();
+        MySqlCommands_UserInfoTable userInfoTable = new MySqlCommands_UserInfoTable();
+        MySqlCommands_UserProfileTable userProfileTable = new MySqlCommands_UserProfileTable();
+
+        DataBase dataBase = new DataBase();
+
             if (NameTextBox.Text.ToString() != "" &&
                 SurnameTextBox.Text.ToString() != "" &&
                 EmailTextBox.Text.ToString() != "" &&
@@ -37,42 +43,37 @@ namespace ThirdProgramingPractice
                 PasswordTextBox.Text.ToString() != "" &&
                 RepeadPaswordTextBox.Text.ToString() != "")
             {
-                if (RepeadPaswordTextBox.Text.ToString() == PasswordTextBox.Text.ToString() &&
-                    RepeadPaswordTextBox.Text.ToString() != "" &&
-                    PasswordTextBox.Text.ToString() != "")
+                if (RepeadPaswordTextBox.Text.ToString() == PasswordTextBox.Text.ToString())
                 {
                     ErrorMassageLabel.Text = " ";
-                    DataDispatch();
 
                     dataBase.OpenConnection();
 
-                    mySqlCommands_Account.InsertAccount(dataBase.GetConnection());
-                    mySqlCommands_UserInfo.InsertUserInfoTable(dataBase.GetConnection());
-                    mySqlCommands_UserProfile.InsertUserProfileTable(dataBase.GetConnection());
-                    mySqlCommands_Account.UpdateAccoutFK(
-                        dataBase.GetConnection(),
-                        mySqlCommands_UserProfile.SelectUserProfileID(dataBase.GetConnection()),
-                        mySqlCommands_UserInfo.SelectUserInfoID(dataBase.GetConnection()));
+                    accountTable.CreateAccount(dataBase.GetConnection(), LoginTextBox.Text.ToString(), PasswordTextBox.Text.ToString());
+                    userInfoTable.CreateUserInfo(dataBase.GetConnection(), EmailTextBox.Text.ToString(), PhoneNumberTextBox.Text.ToString(), HomeAdressTextBox.Text.ToString());
+                    userProfileTable.CreateUserProfile(dataBase.GetConnection(), NameTextBox.Text.ToString(), SurnameTextBox.Text.ToString());
+                    accountTable.UpdateAccoutFK(
+                                                    dataBase.GetConnection(),
+                                                    userProfileTable.SelectUserProfileID(dataBase.GetConnection(), NameTextBox.Text.ToString(), SurnameTextBox.Text.ToString()),
+                                                    userInfoTable.SelectUserInfoID(dataBase.GetConnection(), EmailTextBox.Text.ToString(), PhoneNumberTextBox.Text.ToString(), HomeAdressTextBox.Text.ToString()),
+                                                    LoginTextBox.Text.ToString(),
+                                                    PasswordTextBox.Text.ToString()
+                                                );
 
-                    MessageBox.Show("Congratulatio!!! All good!!!");
+                    MessageBox.Show("Account sucssesful create");
                 }
                 else
                 {
                     ErrorMassageLabel.Text = "Passwords must be same";
+                    ErrorMassageLabel.ForeColor = Color.Red;
                 }
             }
             else
             {
                 ErrorMassageLabel.Text = "All labels must be fill";
+                ErrorMassageLabel.ForeColor = Color.Red;
             }
             dataBase.CloseConnection();
-        }
-
-        private void DataDispatch()
-        {
-            mySqlCommands_Account.Structure(LoginTextBox, PasswordTextBox);
-            mySqlCommands_UserInfo.Structure(EmailTextBox, PhoneNumberTextBox, HomeAdressTextBox);
-            mySqlCommands_UserProfile.Structure(NameTextBox, SurnameTextBox);
         }
     }
 }
