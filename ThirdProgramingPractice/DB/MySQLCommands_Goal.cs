@@ -18,7 +18,7 @@ namespace ThirdProgramingPractice.DB
         /// <param name="Amount">Variable "Amount".</param>
         public void CreateGoal(MySqlConnection connection, string Name, float Amount)
         {
-            string Query = "INSERT iNTO `goal` (`Name`, `Amount`) VALUES (@Name, @Amount)";
+            string Query = "INSERT INTO `goal` (`Name`, `Amount`) VALUES (@Name, @Amount)";
 
             try
             {
@@ -32,6 +32,47 @@ namespace ThirdProgramingPractice.DB
             catch (Exception ex)
             {
                 MessageBox.Show("Error in MySQLCommands_Goal class.\nMethod CreateGoal.\nError message: " + ex.Message);
+            }
+        }
+
+        public int GetCreatedID (MySqlConnection connection)
+        {
+            int CreatedGoalID = 0;
+            string Query = "SELECT max(ID) FROM goal";
+
+            try
+            {
+                MySqlCommand GetID = new MySqlCommand(Query, connection);
+                object result = GetID.ExecuteScalar();
+
+                if (result != DBNull.Value)
+                {
+                    CreatedGoalID = Convert.ToInt16(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in class MySQLCommands_Goal.\nMethod GetCreatedID(). Error message: " + ex.Message);
+            }
+
+            return CreatedGoalID;
+        }
+
+        public void SetInGoalList(MySqlConnection connection, int accountID, int goalID)
+        {
+            string Query = "INSERT INTO `goals_list` (`accountID`, `goalID`) VALUES (@accountID, @goalID)";
+
+            try
+            {
+                MySqlCommand SetInList = new MySqlCommand(Query, connection);
+                SetInList.Parameters.Add("@accountID", MySqlDbType.Int16).Value = accountID;
+                SetInList.Parameters.Add("@goalID", MySqlDbType.Int16).Value = goalID;
+
+                SetInList.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in class MySQLCommands_Goal.\nMethod SetInGoalList(). Error message: " + ex.Message);
             }
         }
     }

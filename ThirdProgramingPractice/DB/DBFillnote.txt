@@ -33,13 +33,14 @@ CREATE TABLE `fri_db`.`account` (
   CREATE TABLE `fri_db`.`goals_list` (
   `accountID` INT NOT NULL,
   `goalID` INT NOT NULL,
-  UNIQUE INDEX `accountID_UNIQUE` (`accountID` ASC) VISIBLE,
-  UNIQUE INDEX `goalID_UNIQUE` (`goalID` ASC) VISIBLE);
+  UNIQUE INDEX `goalID_UNIQUE` (`goalID` ASC));
 
   CREATE TABLE `fri_db`.`goal` (
   `ID` INT NOT NULL AUTO_INCREMENT,
-  `Amount` VARCHAR(45) NOT NULL,
-  `Currently` VARCHAR(45) NULL,
+  `Name` VARCHAR(45) NOT NULL,
+  `Amount` FLOAT NOT NULL,
+  `Currently` FLOAT NULL,
   PRIMARY KEY (`ID`),
-  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC) VISIBLE);
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC));
+
 

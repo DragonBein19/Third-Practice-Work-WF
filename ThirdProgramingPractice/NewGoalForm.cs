@@ -31,5 +31,10 @@ namespace ThirdProgramingPractice
         {
             return Convert.ToInt16(GoalTextBox.Text);
         }
+
+        private void CreateGoalButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

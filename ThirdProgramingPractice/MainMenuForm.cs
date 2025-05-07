@@ -19,14 +19,17 @@ namespace ThirdProgramingPractice
         DataBase dataBase = new DataBase();
         MySqlCommands_BudgetTable Budget = new MySqlCommands_BudgetTable();
         private int accountID;
-        private string BudgetName;
         private int SelectedBudgetID;
 
         public MainMenuForm(int accountID)
         {
             InitializeComponent();
+
             this.accountID = accountID;
             FillBudgetListBox();
+            dataBase.OpenConnection();
+            FillGoalsListBox(dataBase.GetConnection());
+            dataBase.CloseConnection();
         }
 
         /// <summary>
@@ -50,9 +53,9 @@ namespace ThirdProgramingPractice
                 Budget.CreateBudget(dataBase.GetConnection(), BudgetName);
                 BudgetsList.AddBudgetsList(dataBase.GetConnection(), Budget.GetBudgetID(dataBase.GetConnection(), BudgetName), accountID);
             }
-            dataBase.CloseConnection();
             BudgetsListBox.Items.Clear();
             FillBudgetListBox();
+            dataBase.CloseConnection();
         }
 
         /// <summary>
@@ -66,7 +69,6 @@ namespace ThirdProgramingPractice
             MySqlCommands_ExpensesAmount expensesaTable = new MySqlCommands_ExpensesAmount();
 
             string SelectedItem = BudgetsListBox.SelectedItem.ToString();
-            BudgetName = SelectedItem;
 
             SelectedBudgetID = Budget.GetBudgetID(dataBase.GetConnection(), SelectedItem);
 
@@ -97,19 +99,27 @@ namespace ThirdProgramingPractice
             dataBase.CloseConnection();
         }
 
+        /// <summary>
+        /// The method responsible for displaying income and expenses.
+        /// </summary>
+        /// <param name="connection">Currently data base connection</param>
         private void FillExpensesIndcomeListBox(MySqlConnection connection)
         {
             MySQLCommand_expensesList expensesList = new MySQLCommand_expensesList();
             MySqlCommands_incomeList incomeList = new MySqlCommands_incomeList();
 
-            dataBase.OpenConnection();
-
             List<string> ExpensesListArray = expensesList.GetTansactionList(connection, SelectedBudgetID);
             List<string> IncomeListArray = incomeList.GetTransactionList(connection, SelectedBudgetID);
             ExpensesListBox.Items.AddRange(ExpensesListArray.ToArray());
             IncomeListBox.Items.AddRange(IncomeListArray.ToArray());
+        }
 
-            dataBase.CloseConnection();
+        private void FillGoalsListBox(MySqlConnection connection)
+        {
+            MySQLCommands_GoalsList goallist = new MySQLCommands_GoalsList();
+            List<string> GoalsList = goallist.GetGoalsList(connection, accountID);
+
+            GoalsListBox.Items.AddRange(GoalsList.ToArray());
         }
 
         /// <summary>
@@ -126,6 +136,10 @@ namespace ThirdProgramingPractice
             FillExpensesIndcomeListBox(dataBase.GetConnection());
         }
 
+        /// <summary>
+        /// The method is responsible for creating a new row in the "goals_list" table and linking 
+        /// the newly created goal to the account.
+        /// </summary>
         private void NewGoalButton_Click(object sender, EventArgs e)
         {
             NewGoalForm GoalForm = new NewGoalForm();
@@ -134,6 +148,10 @@ namespace ThirdProgramingPractice
 
             MySQLCommands_Goal goal = new MySQLCommands_Goal();
             goal.CreateGoal(dataBase.GetConnection(), GoalForm.ReturnName(), GoalForm.ReturnValue());
+            goal.SetInGoalList(dataBase.GetConnection(), accountID, goal.GetCreatedID(dataBase.GetConnection()));
+
+            GoalsListBox.Items.Clear();
+            FillGoalsListBox(dataBase.GetConnection());
 
             dataBase.CloseConnection();
             GoalForm.Close();

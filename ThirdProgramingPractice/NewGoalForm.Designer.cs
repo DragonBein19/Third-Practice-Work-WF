@@ -37,59 +37,58 @@
             // 
             // NameTextBox
             // 
-            NameTextBox.Location = new Point(12, 44);
-            NameTextBox.Margin = new Padding(3, 4, 3, 4);
+            NameTextBox.Location = new Point(10, 33);
             NameTextBox.Name = "NameTextBox";
-            NameTextBox.Size = new Size(196, 27);
+            NameTextBox.Size = new Size(172, 23);
             NameTextBox.TabIndex = 12;
             // 
             // GoalNameLabel
             // 
             GoalNameLabel.AutoSize = true;
-            GoalNameLabel.Location = new Point(69, 20);
+            GoalNameLabel.Location = new Point(60, 15);
             GoalNameLabel.Name = "GoalNameLabel";
-            GoalNameLabel.Size = new Size(81, 20);
+            GoalNameLabel.Size = new Size(64, 15);
             GoalNameLabel.TabIndex = 13;
             GoalNameLabel.Text = "Goal name";
             // 
             // GoalTaskLabel
             // 
             GoalTaskLabel.AutoSize = true;
-            GoalTaskLabel.Location = new Point(73, 75);
+            GoalTaskLabel.Location = new Point(64, 56);
             GoalTaskLabel.Name = "GoalTaskLabel";
-            GoalTaskLabel.Size = new Size(70, 20);
+            GoalTaskLabel.Size = new Size(55, 15);
             GoalTaskLabel.TabIndex = 14;
             GoalTaskLabel.Text = "Goal task";
             GoalTaskLabel.Click += GoalTaskLabel_Click;
             // 
             // GoalTextBox
             // 
-            GoalTextBox.Location = new Point(12, 99);
-            GoalTextBox.Margin = new Padding(3, 4, 3, 4);
+            GoalTextBox.Location = new Point(10, 74);
             GoalTextBox.Name = "GoalTextBox";
-            GoalTextBox.Size = new Size(196, 27);
+            GoalTextBox.Size = new Size(172, 23);
             GoalTextBox.TabIndex = 15;
             // 
             // CreateGoalButton
             // 
-            CreateGoalButton.Location = new Point(28, 134);
-            CreateGoalButton.Margin = new Padding(3, 4, 3, 4);
+            CreateGoalButton.Location = new Point(24, 100);
             CreateGoalButton.Name = "CreateGoalButton";
-            CreateGoalButton.Size = new Size(160, 37);
+            CreateGoalButton.Size = new Size(140, 28);
             CreateGoalButton.TabIndex = 17;
             CreateGoalButton.Text = "Create goal";
             CreateGoalButton.UseVisualStyleBackColor = true;
+            CreateGoalButton.Click += CreateGoalButton_Click;
             // 
             // NewGoalForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(219, 184);
+            ClientSize = new Size(192, 138);
             Controls.Add(CreateGoalButton);
             Controls.Add(GoalTextBox);
             Controls.Add(GoalTaskLabel);
             Controls.Add(GoalNameLabel);
             Controls.Add(NameTextBox);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "NewGoalForm";
             Text = "NewGoalForm";
             ResumeLayout(false);
