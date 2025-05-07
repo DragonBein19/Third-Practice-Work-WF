@@ -71,14 +71,15 @@ namespace ThirdProgramingPractice
             SelectedBudgetID = Budget.GetBudgetID(dataBase.GetConnection(), SelectedItem);
 
             AmountTextBox.Text = "Amount: " + Budget.GetBudgetAmount(dataBase.GetConnection(), SelectedItem).ToString();
-            ExpensesTextBox.Text = "Expenses: " + expensesaTable.GetExpensesAmount(dataBase.GetConnection(), Budget.GetBudgetExpenses(dataBase.GetConnection(), SelectedItem)).ToString();
-            IncomeTextBox.Text = "Incomes: " + incomeaTable.GetIncomeAmount(dataBase.GetConnection(), Budget.GetBudgetIncome(dataBase.GetConnection(), SelectedItem)).ToString();
+            ExpensesTextBox.Text = "Expenses: " + expensesaTable.GetExpensesAmount(dataBase.GetConnection(), Budget.GetBudgetExpenses(dataBase.GetConnection(), SelectedBudgetID)).ToString();
+            IncomeTextBox.Text = "Incomes: " + incomeaTable.GetIncomeAmount(dataBase.GetConnection(), Budget.GetBudgetIncome(dataBase.GetConnection(), SelectedBudgetID)).ToString();
 
-            
+
             ExpensesListBox.Items.Clear();
-            FillIncomeListBox(dataBase.GetConnection());
+            IncomeListBox.Items.Clear();
+            FillExpensesIndcomeListBox(dataBase.GetConnection());
 
-            dataBase.CloseConnection();           
+            dataBase.CloseConnection();
         }
 
         /// <summary>
@@ -96,14 +97,17 @@ namespace ThirdProgramingPractice
             dataBase.CloseConnection();
         }
 
-        private void FillIncomeListBox(MySqlConnection connection)
+        private void FillExpensesIndcomeListBox(MySqlConnection connection)
         {
             MySQLCommand_expensesList expensesList = new MySQLCommand_expensesList();
+            MySqlCommands_incomeList incomeList = new MySqlCommands_incomeList();
 
             dataBase.OpenConnection();
 
             List<string> ExpensesListArray = expensesList.GetTansactionList(connection, SelectedBudgetID);
+            List<string> IncomeListArray = incomeList.GetTransactionList(connection, SelectedBudgetID);
             ExpensesListBox.Items.AddRange(ExpensesListArray.ToArray());
+            IncomeListBox.Items.AddRange(IncomeListArray.ToArray());
 
             dataBase.CloseConnection();
         }
@@ -116,6 +120,23 @@ namespace ThirdProgramingPractice
             TransactionForm transaction = new TransactionForm(SelectedBudgetID);
             transaction.ShowDialog();
             transaction.Close();
+
+            ExpensesListBox.Items.Clear();
+            IncomeListBox.Items.Clear();
+            FillExpensesIndcomeListBox(dataBase.GetConnection());
+        }
+
+        private void NewGoalButton_Click(object sender, EventArgs e)
+        {
+            NewGoalForm GoalForm = new NewGoalForm();
+            GoalForm.ShowDialog();
+            dataBase.OpenConnection();
+
+            MySQLCommands_Goal goal = new MySQLCommands_Goal();
+            goal.CreateGoal(dataBase.GetConnection(), GoalForm.ReturnName(), GoalForm.ReturnValue());
+
+            dataBase.CloseConnection();
+            GoalForm.Close();
         }
     }
 }

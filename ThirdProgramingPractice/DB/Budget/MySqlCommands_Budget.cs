@@ -149,7 +149,7 @@ namespace ThirdProgramingPractice.DB.Budget
         /// A method that returns the foreign key 'expenses_ID'.
         /// </summary>
         /// <param name="connection">Currently data base connection</param>
-        public int GetBudgetExpenses(MySqlConnection connection, int ID)
+        public int GetBudgetExpenses(MySqlConnection connection, int expensesID)
         {
             string Query = "SELECT `Expenses_ID` FROM `budget` WHERE `ID` = @ID";
             MySqlCommand GetExpenses = new MySqlCommand(Query, connection);
@@ -157,7 +157,7 @@ namespace ThirdProgramingPractice.DB.Budget
 
             try
             {
-                GetExpenses.Parameters.Add("@ID", MySqlDbType.Int16).Value = ID;
+                GetExpenses.Parameters.Add("@ID", MySqlDbType.Int16).Value = expensesID;
 
                 using (MySqlDataReader reader = GetExpenses.ExecuteReader())
                 {

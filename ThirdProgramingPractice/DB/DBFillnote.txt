@@ -1,1 +1,45 @@
-﻿
+﻿CREATE SCHEMA `fri_db`;
+
+CREATE TABLE `fri_db`.`account` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `Login` VARCHAR(45) NOT NULL,
+  `Paasword` VARCHAR(45) NOT NULL,
+  `Profile_ID` INT NULL,
+  `UserInfo_ID` INT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC) VISIBLE);
+
+
+
+
+  CREATE TABLE `fri_db`.`transaction` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `Name` VARCHAR(45) NOT NULL,
+  `Amount` FLOAT NOT NULL,
+  `Category_ID` INT NULL,
+  `Description` VARCHAR(45) NULL,
+  `Date` DATE NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC) VISIBLE);
+
+  CREATE TABLE `fri_db`.`expenseslist` (
+  `ExpensesID` INT NOT NULL,
+  `TransactionID` INT NOT NULL);
+
+  CREATE TABLE `fri_db`.`incomelist` (
+  `IncomeID` INT NOT NULL,
+  `TransactionID` INT NOT NULL);
+
+  CREATE TABLE `fri_db`.`goals_list` (
+  `accountID` INT NOT NULL,
+  `goalID` INT NOT NULL,
+  UNIQUE INDEX `accountID_UNIQUE` (`accountID` ASC) VISIBLE,
+  UNIQUE INDEX `goalID_UNIQUE` (`goalID` ASC) VISIBLE);
+
+  CREATE TABLE `fri_db`.`goal` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `Amount` VARCHAR(45) NOT NULL,
+  `Currently` VARCHAR(45) NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC) VISIBLE);
+

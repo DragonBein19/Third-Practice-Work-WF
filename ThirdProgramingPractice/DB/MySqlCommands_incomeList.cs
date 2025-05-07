@@ -1,9 +1,11 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ThirdProgramingPractice.DB.Budget;
 
 namespace ThirdProgramingPractice.DB
 {
@@ -27,6 +29,44 @@ namespace ThirdProgramingPractice.DB
             }
         }
 
-        public void
+        public List<string> GetTransactionList(MySqlConnection connection, int budgetID)
+        {
+            string Query = "SELECT `TransactionID` FROM `incomelist` WHERE `IncomeID` = @IncomeID";
+            List<string> SendingList = new List<string>();
+
+            MySqlCommands_BudgetTable budget = new MySqlCommands_BudgetTable();
+            MySqlCommand_transaction transaction = new MySqlCommand_transaction();
+            int IncomesID = budget.GetBudgetExpenses(connection, budgetID);
+
+            try
+            {
+                MySqlCommand SelectAllTransactionID = new MySqlCommand(Query, connection);
+                DataTable table = new DataTable();
+
+                SelectAllTransactionID.Parameters.Add("@IncomeID", MySqlDbType.Int16).Value = IncomesID;
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(SelectAllTransactionID);
+
+                if(table != null)
+                {
+                    adapter.Fill(table);
+                }
+                else
+                {
+                    SendingList.Add("No incomes");
+                }
+
+                for (int i = 0; i < table.Rows.Count; i++)
+                {
+                    SendingList.Add(transaction.GetTransactionName(connection, Convert.ToInt16(table.Rows[i]["TransactionID"])));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in MySqlCommands_incomeList class. \nMethod GetTransactionList(). \nError message: " + ex.Message);
+            }
+
+            return SendingList;
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace ThirdProgramingPractice.DB
 
         public List<string> GetTansactionList(MySqlConnection connection, int budgetID)
         {
-            string Query = "SELECT 'TransactionID` FROM `expenseslist` WHERE `ExpensesID` = @ExpensesID";
+            string Query = "SELECT `TransactionID` FROM `expenseslist` WHERE `ExpensesID` = @ExpensesID";
             List<string> SendingList = new List<string>();
 
             MySqlCommands_BudgetTable budget = new MySqlCommands_BudgetTable();

@@ -39,13 +39,15 @@
             CreateTransactionButton = new Button();
             GoalsLabel = new Label();
             GoalsList = new ListBox();
+            NewGoalButton = new Button();
             SuspendLayout();
             // 
             // NewBudgetButton
             // 
-            NewBudgetButton.Location = new Point(12, 12);
+            NewBudgetButton.Location = new Point(14, 16);
+            NewBudgetButton.Margin = new Padding(3, 4, 3, 4);
             NewBudgetButton.Name = "NewBudgetButton";
-            NewBudgetButton.Size = new Size(95, 23);
+            NewBudgetButton.Size = new Size(109, 31);
             NewBudgetButton.TabIndex = 0;
             NewBudgetButton.Text = "New budget";
             NewBudgetButton.UseVisualStyleBackColor = true;
@@ -54,69 +56,73 @@
             // BudgetsListBox
             // 
             BudgetsListBox.FormattingEnabled = true;
-            BudgetsListBox.ItemHeight = 15;
-            BudgetsListBox.Location = new Point(12, 41);
+            BudgetsListBox.Location = new Point(14, 55);
+            BudgetsListBox.Margin = new Padding(3, 4, 3, 4);
             BudgetsListBox.Name = "BudgetsListBox";
-            BudgetsListBox.Size = new Size(94, 604);
+            BudgetsListBox.Size = new Size(107, 804);
             BudgetsListBox.TabIndex = 1;
             BudgetsListBox.SelectedIndexChanged += BudgetsListBox_SelectedIndexChanged;
             // 
             // AmountTextBox
             // 
-            AmountTextBox.Location = new Point(126, 41);
+            AmountTextBox.Location = new Point(144, 55);
+            AmountTextBox.Margin = new Padding(3, 4, 3, 4);
             AmountTextBox.Name = "AmountTextBox";
-            AmountTextBox.Size = new Size(100, 23);
+            AmountTextBox.Size = new Size(114, 27);
             AmountTextBox.TabIndex = 2;
             AmountTextBox.Text = "Amount:";
             // 
             // IncomeTextBox
             // 
-            IncomeTextBox.Location = new Point(126, 70);
+            IncomeTextBox.Location = new Point(144, 93);
+            IncomeTextBox.Margin = new Padding(3, 4, 3, 4);
             IncomeTextBox.Name = "IncomeTextBox";
-            IncomeTextBox.Size = new Size(100, 23);
+            IncomeTextBox.Size = new Size(114, 27);
             IncomeTextBox.TabIndex = 3;
             IncomeTextBox.Text = "Income:";
             // 
             // ExpensesTextBox
             // 
-            ExpensesTextBox.Location = new Point(252, 70);
+            ExpensesTextBox.Location = new Point(491, 93);
+            ExpensesTextBox.Margin = new Padding(3, 4, 3, 4);
             ExpensesTextBox.Name = "ExpensesTextBox";
-            ExpensesTextBox.Size = new Size(100, 23);
+            ExpensesTextBox.Size = new Size(114, 27);
             ExpensesTextBox.TabIndex = 4;
             ExpensesTextBox.Text = "Expneses:";
             // 
             // IncomeListBox
             // 
             IncomeListBox.FormattingEnabled = true;
-            IncomeListBox.ItemHeight = 15;
-            IncomeListBox.Location = new Point(126, 97);
+            IncomeListBox.Location = new Point(144, 129);
+            IncomeListBox.Margin = new Padding(3, 4, 3, 4);
             IncomeListBox.Name = "IncomeListBox";
-            IncomeListBox.Size = new Size(100, 514);
+            IncomeListBox.Size = new Size(114, 684);
             IncomeListBox.TabIndex = 5;
             // 
             // ExpensesListBox
             // 
             ExpensesListBox.FormattingEnabled = true;
-            ExpensesListBox.ItemHeight = 15;
-            ExpensesListBox.Location = new Point(252, 97);
+            ExpensesListBox.Location = new Point(491, 129);
+            ExpensesListBox.Margin = new Padding(3, 4, 3, 4);
             ExpensesListBox.Name = "ExpensesListBox";
-            ExpensesListBox.Size = new Size(100, 514);
+            ExpensesListBox.Size = new Size(114, 684);
             ExpensesListBox.TabIndex = 6;
             // 
             // BudgetNameLabel
             // 
             BudgetNameLabel.AutoSize = true;
-            BudgetNameLabel.Location = new Point(126, 16);
+            BudgetNameLabel.Location = new Point(144, 21);
             BudgetNameLabel.Name = "BudgetNameLabel";
-            BudgetNameLabel.Size = new Size(127, 15);
+            BudgetNameLabel.Size = new Size(162, 20);
             BudgetNameLabel.TabIndex = 7;
             BudgetNameLabel.Text = "Selected Budget Name";
             // 
             // CreateTransactionButton
             // 
-            CreateTransactionButton.Location = new Point(160, 622);
+            CreateTransactionButton.Location = new Point(183, 829);
+            CreateTransactionButton.Margin = new Padding(3, 4, 3, 4);
             CreateTransactionButton.Name = "CreateTransactionButton";
-            CreateTransactionButton.Size = new Size(145, 23);
+            CreateTransactionButton.Size = new Size(166, 31);
             CreateTransactionButton.TabIndex = 8;
             CreateTransactionButton.Text = "Create new transaction";
             CreateTransactionButton.UseVisualStyleBackColor = true;
@@ -125,26 +131,38 @@
             // GoalsLabel
             // 
             GoalsLabel.AutoSize = true;
-            GoalsLabel.Location = new Point(1210, 49);
+            GoalsLabel.Location = new Point(1383, 65);
             GoalsLabel.Name = "GoalsLabel";
-            GoalsLabel.Size = new Size(36, 15);
+            GoalsLabel.Size = new Size(46, 20);
             GoalsLabel.TabIndex = 9;
             GoalsLabel.Text = "Goals";
             // 
             // GoalsList
             // 
             GoalsList.FormattingEnabled = true;
-            GoalsList.ItemHeight = 15;
-            GoalsList.Location = new Point(1210, 70);
+            GoalsList.Location = new Point(1383, 93);
+            GoalsList.Margin = new Padding(3, 4, 3, 4);
             GoalsList.Name = "GoalsList";
-            GoalsList.Size = new Size(100, 514);
+            GoalsList.Size = new Size(114, 684);
             GoalsList.TabIndex = 10;
+            // 
+            // NewGoalButton
+            // 
+            NewGoalButton.Location = new Point(1388, 836);
+            NewGoalButton.Margin = new Padding(3, 4, 3, 4);
+            NewGoalButton.Name = "NewGoalButton";
+            NewGoalButton.Size = new Size(109, 31);
+            NewGoalButton.TabIndex = 11;
+            NewGoalButton.Text = "New goal";
+            NewGoalButton.UseVisualStyleBackColor = true;
+            NewGoalButton.Click += NewGoalButton_Click;
             // 
             // MainMenuForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1345, 660);
+            ClientSize = new Size(1537, 880);
+            Controls.Add(NewGoalButton);
             Controls.Add(GoalsList);
             Controls.Add(GoalsLabel);
             Controls.Add(CreateTransactionButton);
@@ -156,6 +174,7 @@
             Controls.Add(AmountTextBox);
             Controls.Add(BudgetsListBox);
             Controls.Add(NewBudgetButton);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "MainMenuForm";
             Text = " ,¿";
             ResumeLayout(false);
@@ -175,5 +194,6 @@
         private Button CreateTransactionButton;
         private Label GoalsLabel;
         private ListBox GoalsList;
+        private Button NewGoalButton;
     }
 }
