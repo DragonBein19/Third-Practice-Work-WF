@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ThirdProgramingPractice.DB.Budget;
 
-namespace ThirdProgramingPractice.DB
+namespace ThirdProgramingPractice.DB.Transaction
 {
     internal class MySqlCommands_incomeList
     {
@@ -28,6 +28,37 @@ namespace ThirdProgramingPractice.DB
                 MessageBox.Show("Error in MySqlCommands_incomeList class. \nMethod InsertNewTransactionInList(). \nError message: " + ex.Message);
             }
         }
+        public List<int> GetTransctionIDList(MySqlConnection connection, int budgetID)
+        {
+            MySqlCommands_BudgetTable budget = new MySqlCommands_BudgetTable();
+            string Query = "SELECT `TransactionID` FROM `incomelist` WHERE `IncomeID` = @IncomeID";
+            List<int> IcnomeIDList = new List<int>();
+            int incomeID = budget.GetBudgetIncome(connection, budgetID);
+
+            try
+            {           
+                MySqlCommand SelecetedID = new MySqlCommand(Query, connection);
+                DataTable table = new DataTable();
+
+                SelecetedID.Parameters.Add("@IncomeID", MySqlDbType.Int16).Value = incomeID;
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(SelecetedID);
+                
+                adapter.Fill(table);
+
+                for(int i = 0; i < table.Rows.Count; i++)
+                {
+                    IcnomeIDList.Add(Convert.ToInt16(table.Rows[i]["TransactionID"]));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in MySqlCommands_incomeList class.\n Method GetTransctionIDList().\nError message" + ex.Message);
+            }
+            
+            return IcnomeIDList;
+        }
+
 
         public List<string> GetTransactionList(MySqlConnection connection, int budgetID)
         {
@@ -36,7 +67,7 @@ namespace ThirdProgramingPractice.DB
 
             MySqlCommands_BudgetTable budget = new MySqlCommands_BudgetTable();
             MySqlCommand_transaction transaction = new MySqlCommand_transaction();
-            int IncomesID = budget.GetBudgetExpenses(connection, budgetID);
+            int IncomesID = budget.GetBudgetIncome(connection, budgetID);
 
             try
             {
@@ -47,7 +78,7 @@ namespace ThirdProgramingPractice.DB
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(SelectAllTransactionID);
 
-                if(table != null)
+                if (table != null)
                 {
                     adapter.Fill(table);
                 }

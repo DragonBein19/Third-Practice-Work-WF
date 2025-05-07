@@ -63,12 +63,13 @@
             // 
             // NewBudgetButton
             // 
+            NewBudgetButton.BackColor = SystemColors.AppWorkspace;
             NewBudgetButton.Location = new Point(12, 12);
             NewBudgetButton.Name = "NewBudgetButton";
             NewBudgetButton.Size = new Size(127, 23);
             NewBudgetButton.TabIndex = 0;
             NewBudgetButton.Text = "New budget";
-            NewBudgetButton.UseVisualStyleBackColor = true;
+            NewBudgetButton.UseVisualStyleBackColor = false;
             NewBudgetButton.Click += NewBudgetButton_Click;
             // 
             // BudgetsListBox
@@ -84,25 +85,28 @@
             // 
             // AmountTextBox
             // 
+            AmountTextBox.BorderStyle = BorderStyle.None;
             AmountTextBox.Location = new Point(145, 42);
             AmountTextBox.Name = "AmountTextBox";
-            AmountTextBox.Size = new Size(100, 23);
+            AmountTextBox.Size = new Size(100, 16);
             AmountTextBox.TabIndex = 2;
             AmountTextBox.Text = "Amount:";
             // 
             // IncomeTextBox
             // 
+            IncomeTextBox.BorderStyle = BorderStyle.None;
             IncomeTextBox.Location = new Point(145, 70);
             IncomeTextBox.Name = "IncomeTextBox";
-            IncomeTextBox.Size = new Size(100, 23);
+            IncomeTextBox.Size = new Size(100, 16);
             IncomeTextBox.TabIndex = 3;
             IncomeTextBox.Text = "Income:";
             // 
             // ExpensesTextBox
             // 
+            ExpensesTextBox.BorderStyle = BorderStyle.None;
             ExpensesTextBox.Location = new Point(278, 70);
             ExpensesTextBox.Name = "ExpensesTextBox";
-            ExpensesTextBox.Size = new Size(100, 23);
+            ExpensesTextBox.Size = new Size(100, 16);
             ExpensesTextBox.TabIndex = 4;
             ExpensesTextBox.Text = "Expneses:";
             // 
@@ -114,6 +118,7 @@
             IncomeListBox.Name = "IncomeListBox";
             IncomeListBox.Size = new Size(100, 514);
             IncomeListBox.TabIndex = 5;
+            IncomeListBox.SelectedIndexChanged += IncomeListBox_SelectedIndexChanged;
             // 
             // ExpensesListBox
             // 
@@ -123,6 +128,7 @@
             ExpensesListBox.Name = "ExpensesListBox";
             ExpensesListBox.Size = new Size(100, 514);
             ExpensesListBox.TabIndex = 6;
+            ExpensesListBox.SelectedIndexChanged += ExpensesListBox_SelectedIndexChanged;
             // 
             // BudgetNameLabel
             // 
@@ -136,12 +142,13 @@
             // 
             // CreateTransactionButton
             // 
+            CreateTransactionButton.BackColor = SystemColors.AppWorkspace;
             CreateTransactionButton.Location = new Point(397, 12);
             CreateTransactionButton.Name = "CreateTransactionButton";
             CreateTransactionButton.Size = new Size(145, 23);
             CreateTransactionButton.TabIndex = 8;
             CreateTransactionButton.Text = "Create new transaction";
-            CreateTransactionButton.UseVisualStyleBackColor = true;
+            CreateTransactionButton.UseVisualStyleBackColor = false;
             CreateTransactionButton.Click += CreateTransactionButton_Click;
             // 
             // GoalsLabel
@@ -164,12 +171,13 @@
             // 
             // NewGoalButton
             // 
+            NewGoalButton.BackColor = SystemColors.AppWorkspace;
             NewGoalButton.Location = new Point(627, 12);
             NewGoalButton.Name = "NewGoalButton";
             NewGoalButton.Size = new Size(100, 23);
             NewGoalButton.TabIndex = 11;
             NewGoalButton.Text = "New goal";
-            NewGoalButton.UseVisualStyleBackColor = true;
+            NewGoalButton.UseVisualStyleBackColor = false;
             NewGoalButton.Click += NewGoalButton_Click;
             // 
             // button1
@@ -312,7 +320,7 @@
             VersionLabel.Name = "VersionLabel";
             VersionLabel.Size = new Size(76, 15);
             VersionLabel.TabIndex = 28;
-            VersionLabel.Text = "version V0.31";
+            VersionLabel.Text = "version V0.35";
             // 
             // TransactionUpadateButton
             // 

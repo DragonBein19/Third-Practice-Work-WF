@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
-namespace ThirdProgramingPractice.DB
+namespace ThirdProgramingPractice.DB.Transaction
 {
     internal class MySqlCommand_transaction
     {
@@ -19,7 +20,7 @@ namespace ThirdProgramingPractice.DB
         public void CreateTransaction(MySqlConnection connection, string TransactionName, float Amount)
         {
             string Query = "INSERT INTO `transaction` (`Name`, `Amount`, `Description`, `Date`) VALUES (@Name, @Amount, @Description, @Date)";
-           
+
             try
             {
                 MySqlCommand createTransaction = new MySqlCommand(Query, connection);
@@ -42,13 +43,13 @@ namespace ThirdProgramingPractice.DB
             string Query = "SELECT `ID` FROM `transaction` WHERE `Name` = @Name";
             MySqlCommand getID = new MySqlCommand(Query, connection);
             int ID = 0;
-            
+
             try
             {
                 getID.Parameters.Add("@Name", MySqlDbType.VarChar).Value = TransactionName;
                 using (MySqlDataReader reader = getID.ExecuteReader())
                 {
-                    if(reader.Read())
+                    if (reader.Read())
                     {
                         ID = reader.GetInt16(0);
                     }
@@ -58,10 +59,90 @@ namespace ThirdProgramingPractice.DB
             {
                 MessageBox.Show("Error in MySqlCommand_transaction class. \nMethod GetTransactionID()\nError message: " + ex.Message);
             }
-            
+
             return ID;
         }
 
+        public float GetTransactionAmount(MySqlConnection connection, int TransactionID)
+        {
+            string Query = "SELECT `Amount` FROM `transaction` WHERE `ID` = @ID";
+            float Amount = 0.0f;
+
+            try
+            {
+                MySqlCommand GetAmount = new MySqlCommand(Query, connection);
+
+                GetAmount.Parameters.Add("@ID", MySqlDbType.Int16).Value = TransactionID;
+
+                using (MySqlDataReader reader = GetAmount.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        Amount = reader.GetFloat(0);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in MySqlCommand_transaction class. \nMethod GetTransactionAmount()\nError message: " + ex.Message);
+            }
+
+            return Amount;
+        }
+
+        public string GetTransactionDescription(MySqlConnection connection, int TransactionID)
+        {
+            string Query = "SELECT `Description` FROM `transaction` WHERE `ID` = @ID";
+            string Description = "";
+            
+            try
+            {
+                MySqlCommand GetAmount = new MySqlCommand(Query, connection);
+
+                GetAmount.Parameters.Add("@ID", MySqlDbType.Int16).Value = TransactionID;
+
+                using (MySqlDataReader reader = GetAmount.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        Description = reader["Description"].ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in MySqlCommand_transaction class. \nMethod GetTransactionDescription()\nError message: " + ex.Message);
+            }
+
+            return Description;
+        }
+
+        public DateTime GetTransactionDate(MySqlConnection connection, int TransactionID)
+        {
+            string Query = "SELECT `Date` FROM `transaction` WHERE `ID` = @ID";
+            DateTime Date = new DateTime();
+
+            try
+            {
+                MySqlCommand GetAmount = new MySqlCommand(Query, connection);
+
+                GetAmount.Parameters.Add("@ID", MySqlDbType.Int16).Value = TransactionID;
+
+                using (MySqlDataReader reader = GetAmount.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        Date = Convert.ToDateTime(reader["Date"]);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in MySqlCommand_transaction class. \nMethod GetTransactionDate()\nError message: " + ex.Message);
+            }
+
+            return Date;
+        }
 
         public string GetTransactionName(MySqlConnection connection, int TransactionID)
         {
@@ -74,12 +155,12 @@ namespace ThirdProgramingPractice.DB
 
                 GetName.Parameters.Add("@ID", MySqlDbType.Int16).Value = TransactionID;
 
-                using(MySqlDataReader reader = GetName.ExecuteReader()) 
-                { 
-                    if(reader.Read())
+                using (MySqlDataReader reader = GetName.ExecuteReader())
+                {
+                    if (reader.Read())
                     {
                         name = reader["Name"].ToString();
-                    } 
+                    }
                 }
             }
             catch (Exception ex)

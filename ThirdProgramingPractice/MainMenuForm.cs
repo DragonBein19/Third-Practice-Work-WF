@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ThirdProgramingPractice.DB;
 using ThirdProgramingPractice.DB.Budget;
+using ThirdProgramingPractice.DB.Transaction;
 
 namespace ThirdProgramingPractice
 {
@@ -69,6 +70,7 @@ namespace ThirdProgramingPractice
             MySqlCommands_ExpensesAmount expensesaTable = new MySqlCommands_ExpensesAmount();
 
             string SelectedItem = BudgetsListBox.SelectedItem.ToString();
+            BudgetNameLabel.Text = SelectedItem;
 
             SelectedBudgetID = Budget.GetBudgetID(dataBase.GetConnection(), SelectedItem);
 
@@ -155,6 +157,35 @@ namespace ThirdProgramingPractice
 
             dataBase.CloseConnection();
             GoalForm.Close();
+        }
+
+        private void IncomeListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MySqlCommands_incomeList incomeIDList = new MySqlCommands_incomeList();
+            MySqlCommand_transaction transaction = new MySqlCommand_transaction();
+            List<int> IncomeIDList = new List<int>();
+
+            dataBase.OpenConnection();
+
+            IncomeIDList = incomeIDList.GetTransctionIDList(dataBase.GetConnection(), SelectedBudgetID);
+            
+            for(int i = 0; i < IncomeIDList.Count; i++)
+            {
+                if(IncomeListBox.Text.ToString() == transaction.GetTransactionName(dataBase.GetConnection(), Convert.ToInt16(IncomeIDList[i])))
+                {
+                    TransactionNameTextBox.Text = transaction.GetTransactionName(dataBase.GetConnection(), Convert.ToInt16(IncomeIDList[i]));
+                    TransactionAmountTextBox.Text = transaction.GetTransactionAmount(dataBase.GetConnection(), Convert.ToInt16(IncomeIDList[i])).ToString();
+                    DescriptionTextBox.Text = transaction.GetTransactionDescription(dataBase.GetConnection(), Convert.ToInt16(IncomeIDList[i]));
+                    TransactionDateLabel.Text = "Transaction Date: " + transaction.GetTransactionDate(dataBase.GetConnection(), Convert.ToInt16(IncomeIDList[i])).ToString();
+                }               
+            }
+
+            dataBase.CloseConnection();
+        }
+
+        private void ExpensesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ThirdProgramingPractice.DB.Budget;
 
-namespace ThirdProgramingPractice.DB
+namespace ThirdProgramingPractice.DB.Transaction
 {
     internal class MySQLCommand_expensesList
     {
@@ -37,7 +37,7 @@ namespace ThirdProgramingPractice.DB
             MySqlCommands_BudgetTable budget = new MySqlCommands_BudgetTable();
             MySqlCommand_transaction transaction = new MySqlCommand_transaction();
             int ExpensesID = budget.GetBudgetExpenses(connection, budgetID);
-            
+
             try
             {
                 MySqlCommand SelectAllTransactionID = new MySqlCommand(Query, connection);
@@ -49,7 +49,7 @@ namespace ThirdProgramingPractice.DB
 
                 adapter.Fill(table);
 
-                for(int i = 0; i < table.Rows.Count; i++)
+                for (int i = 0; i < table.Rows.Count; i++)
                 {
                     SendingList.Add(transaction.GetTransactionName(connection, Convert.ToInt16(table.Rows[i]["TransactionID"])));
                 }

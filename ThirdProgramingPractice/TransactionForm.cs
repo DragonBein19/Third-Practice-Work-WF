@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ThirdProgramingPractice.DB;
 using ThirdProgramingPractice.DB.Budget;
+using ThirdProgramingPractice.DB.Transaction;
 
 namespace ThirdProgramingPractice
 {
