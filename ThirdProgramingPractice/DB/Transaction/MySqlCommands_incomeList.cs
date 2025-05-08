@@ -28,6 +28,7 @@ namespace ThirdProgramingPractice.DB.Transaction
                 MessageBox.Show("Error in MySqlCommands_incomeList class. \nMethod InsertNewTransactionInList(). \nError message: " + ex.Message);
             }
         }
+
         public List<int> GetTransctionIDList(MySqlConnection connection, int budgetID)
         {
             MySqlCommands_BudgetTable budget = new MySqlCommands_BudgetTable();

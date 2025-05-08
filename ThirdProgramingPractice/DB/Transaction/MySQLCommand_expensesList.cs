@@ -61,5 +61,36 @@ namespace ThirdProgramingPractice.DB.Transaction
 
             return SendingList;
         }
+
+        public List<int> GetTransctionIDList(MySqlConnection connection, int budgetID)
+        {
+             MySqlCommands_BudgetTable budget = new MySqlCommands_BudgetTable();
+            string Query = "SELECT `TransactionID` FROM `expenseslist` WHERE `ExpensesID` = @ExpensesID";
+            List<int> IcnomeIDList = new List<int>();
+            int ExpensesID = budget.GetBudgetExpenses(connection, budgetID);
+
+            try
+            {
+                MySqlCommand SelecetedID = new MySqlCommand(Query, connection);
+                DataTable table = new DataTable();
+
+                SelecetedID.Parameters.Add("@ExpensesID", MySqlDbType.Int16).Value = ExpensesID;
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(SelecetedID);
+
+                adapter.Fill(table);
+
+                for (int i = 0; i < table.Rows.Count; i++)
+                {
+                    IcnomeIDList.Add(Convert.ToInt16(table.Rows[i]["TransactionID"]));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in MySQLCommand_expensesList class.\n Method GetTransctionIDList().\nError message" + ex.Message);
+            }
+
+            return IcnomeIDList;
+        }
     }
 }

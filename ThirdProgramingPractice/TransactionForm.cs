@@ -42,7 +42,7 @@ namespace ThirdProgramingPractice
 
                     dataBase.OpenConnection();
 
-                    transaction.CreateTransaction(dataBase.GetConnection(), TransactionNameTextBox.Text.ToString(), Convert.ToInt16(AmountTextBox.Text));
+                    transaction.CreateTransaction(dataBase.GetConnection(), TransactionNameTextBox.Text.ToString(), Convert.ToInt16(AmountTextBox.Text), DescriptonTextBox.Text.ToString());
                     int TransactionID = transaction.GetTransactionID(dataBase.GetConnection(), TransactionNameTextBox.Text.ToString());
 
                     if(TransactionType == 0)

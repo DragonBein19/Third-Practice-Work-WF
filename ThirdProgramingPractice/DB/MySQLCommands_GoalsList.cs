@@ -62,7 +62,7 @@ namespace ThirdProgramingPractice.DB
 
         public List<int> GiveGoalsIdList(MySqlConnection connection, int accountID)
         {
-            string Query = "SELECT `goalID` FROM `goals_list` WHERER `accountID` = @accountID";
+            string Query = "SELECT `goalID` FROM `goals_list` WHERE `accountID` = @accountID";
             List<int> GoalID = new List<int>();
 
             try

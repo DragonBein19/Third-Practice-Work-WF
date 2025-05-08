@@ -11,9 +11,7 @@ using System.Windows.Forms;
 namespace ThirdProgramingPractice
 {
     public partial class NewBudgetForm : Form
-    {
-        private string BudgetName;
-        
+    {       
         public NewBudgetForm()
         {
             InitializeComponent();
@@ -21,13 +19,12 @@ namespace ThirdProgramingPractice
 
         private void NewBudgetBotton_Click(object sender, EventArgs e)
         {
-            BudgetName = NewBudgetTextBox.Text.ToString();
             this.Hide();
         }
 
         public string GetBudgetName()
         {
-            return BudgetName;
-        } 
+            return NewBudgetTextBox.Text.ToString(); ;
+        }
     }
 }

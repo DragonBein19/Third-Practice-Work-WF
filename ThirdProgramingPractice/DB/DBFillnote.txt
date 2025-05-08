@@ -7,8 +7,9 @@ CREATE TABLE `fri_db`.`account` (
   `Profile_ID` INT NULL,
   `UserInfo_ID` INT NULL,
   PRIMARY KEY (`ID`),
-
   UNIQUE INDEX `ID_UNIQUE` (`ID` ASC) VISIBLE);
+
+
 
 
 

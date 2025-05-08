@@ -19,7 +19,7 @@ namespace ThirdProgramingPractice
     {
         DataBase dataBase = new DataBase();
         MySqlCommands_BudgetTable Budget = new MySqlCommands_BudgetTable();
-        private int accountID;
+        private int accountID, SelectedTransactionID, SelectedGoalID;
         private int SelectedBudgetID;
 
         public MainMenuForm(int accountID)
@@ -183,6 +183,8 @@ namespace ThirdProgramingPractice
                     TransactionAmountTextBox.Text = transaction.GetTransactionAmount(dataBase.GetConnection(), Convert.ToInt16(IncomeIDList[i])).ToString();
                     DescriptionTextBox.Text = transaction.GetTransactionDescription(dataBase.GetConnection(), Convert.ToInt16(IncomeIDList[i]));
                     TransactionDateLabel.Text = "Transaction Date: " + transaction.GetTransactionDate(dataBase.GetConnection(), Convert.ToInt16(IncomeIDList[i])).ToString();
+
+                    SelectedTransactionID = Convert.ToInt16(IncomeIDList[i]);
                 }
             }
 
@@ -191,21 +193,74 @@ namespace ThirdProgramingPractice
 
         private void ExpensesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            MySQLCommand_expensesList expensesIDList = new MySQLCommand_expensesList();
+            MySqlCommand_transaction transaction = new MySqlCommand_transaction();
+            List<int> ExpensesIDList = new List<int>();
+            List<string> ExpensesIDListS = new List<string>();
 
+            dataBase.OpenConnection();
+
+            ExpensesIDList = expensesIDList.GetTransctionIDList(dataBase.GetConnection(), SelectedBudgetID);
+
+            for (int i = 0; i < ExpensesIDList.Count; i++)
+            {
+                if (ExpensesListBox.Text.ToString() == transaction.GetTransactionName(dataBase.GetConnection(), Convert.ToInt16(ExpensesIDList[i])))
+                {
+                    TransactionNameTextBox.Text = transaction.GetTransactionName(dataBase.GetConnection(), Convert.ToInt16(ExpensesIDList[i]));
+                    TransactionAmountTextBox.Text = transaction.GetTransactionAmount(dataBase.GetConnection(), Convert.ToInt16(ExpensesIDList[i])).ToString();
+                    DescriptionTextBox.Text = transaction.GetTransactionDescription(dataBase.GetConnection(), Convert.ToInt16(ExpensesIDList[i]));
+                    TransactionDateLabel.Text = "Transaction Date: " + transaction.GetTransactionDate(dataBase.GetConnection(), Convert.ToInt16(ExpensesIDList[i])).ToString();
+
+                    SelectedTransactionID = Convert.ToInt16(ExpensesIDList[i]);
+                }
+            }
+
+            dataBase.CloseConnection();
         }
 
         private void GoalsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             MySQLCommands_GoalsList goalsList = new MySQLCommands_GoalsList();
+            MySQLCommands_Goal goal = new MySQLCommands_Goal();
 
             dataBase.OpenConnection();
-            List<int> TransactionID = goalsList.GiveGoalsIdList(dataBase.GetConnection(), accountID);
+            List<int> GoalID = goalsList.GiveGoalsIdList(dataBase.GetConnection(), accountID);
 
-            for(int i = 0; i < TransactionID.Count; i++)
+            for (int i = 0; i < GoalID.Count; i++)
             {
+                if (GoalsListBox.Text.ToString() == goal.GetGoalName(dataBase.GetConnection(), GoalID[i]).ToString())
+                {
+                    GoalNameTextBox.Text = goal.GetGoalName(dataBase.GetConnection(), GoalID[i]).ToString();
+                    GoalTaskTextBox.Text = goal.GetGoalTask(dataBase.GetConnection(), GoalID[i]).ToString();
+                    ProgressTextBox.Text = goal.GetGoalCurrency(dataBase.GetConnection(), GoalID[i]).ToString();
 
+                    SelectedGoalID = Convert.ToInt16(GoalID[i]);
+                }
             }
 
+            dataBase.CloseConnection();
+        }
+
+        private void TransactionUpadateButton_Click(object sender, EventArgs e)
+        {
+            dataBase.OpenConnection();
+            MySqlCommand_transaction transaction = new MySqlCommand_transaction();
+            transaction.UpdateTransaction(dataBase.GetConnection(), TransactionNameTextBox.Text.ToString(), Convert.ToInt16(TransactionAmountTextBox.Text), DescriptionTextBox.Text.ToString(), SelectedTransactionID);
+
+            IncomeListBox.Items.Clear();
+            ExpensesListBox.Items.Clear();
+            FillExpensesIndcomeListBox(dataBase.GetConnection());
+            dataBase.CloseConnection();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dataBase.OpenConnection();
+            MySQLCommands_Goal Goal = new MySQLCommands_Goal();
+            Goal.UpdateGoal(dataBase.GetConnection(), GoalNameTextBox.Text.ToString(), Convert.ToDouble(GoalTaskTextBox.Text), Convert.ToDouble(ProgressTextBox.Text), SelectedGoalID);
+
+            GoalsListBox.Items.Clear();
+            FillGoalsListBox(dataBase.GetConnection());
             dataBase.CloseConnection();
         }
     }

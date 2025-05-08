@@ -17,7 +17,7 @@ namespace ThirdProgramingPractice.DB.Transaction
         /// <param name="connection"></param>
         /// <param name="TransactionName"></param>
         /// <param name="Amount"></param>
-        public void CreateTransaction(MySqlConnection connection, string TransactionName, float Amount)
+        public void CreateTransaction(MySqlConnection connection, string TransactionName, float Amount, string Description)
         {
             string Query = "INSERT INTO `transaction` (`Name`, `Amount`, `Description`, `Date`) VALUES (@Name, @Amount, @Description, @Date)";
 
@@ -27,7 +27,7 @@ namespace ThirdProgramingPractice.DB.Transaction
 
                 createTransaction.Parameters.Add("@Name", MySqlDbType.VarChar).Value = TransactionName;
                 createTransaction.Parameters.Add("@Amount", MySqlDbType.Double).Value = Amount;
-                createTransaction.Parameters.Add("@Description", MySqlDbType.VarChar).Value = "";
+                createTransaction.Parameters.Add("@Description", MySqlDbType.VarChar).Value = Description;
                 createTransaction.Parameters.Add("@Date", MySqlDbType.Date).Value = DateTime.Now.ToString("dd.MM.yy");
 
                 createTransaction.ExecuteNonQuery();
@@ -169,6 +169,28 @@ namespace ThirdProgramingPractice.DB.Transaction
             }
 
             return name;
+        }
+
+        public void UpdateTransaction(MySqlConnection connection, string Name, float Amount, string Description, int transactionID)
+        {
+            string Query = "UPDATE `transaction` SET `Name` = @Name, `Amount` = @Amount, `Description` = @Description WHERE `ID` = @ID";
+
+            try
+            {
+                MySqlCommand Update = new MySqlCommand(Query, connection);
+                Update.Parameters.Add("@Name", MySqlDbType.VarChar).Value = Name;
+                Update.Parameters.Add("@Amount", MySqlDbType.Float).Value = Amount;
+                Update.Parameters.Add("@Description", MySqlDbType.VarChar).Value = Description;
+                Update.Parameters.Add("ID", MySqlDbType.Int16).Value = transactionID;
+                
+                Update.ExecuteNonQuery();
+
+                MessageBox.Show("Transaction " + Name + " was updated.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in MySqlCommand_transaction class. \nMethod UpdateTransaction()\nError message: " + ex.Message);
+            }
         }
     }
 }
