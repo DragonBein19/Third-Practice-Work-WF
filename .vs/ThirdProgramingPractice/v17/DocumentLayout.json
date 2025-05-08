@@ -3,40 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5D33A58A-79E8-4C37-A7D0-0A0F119B0307}|ThirdProgramingPractice\\ThirdProgramingPractice.csproj|C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\thirdprogramingpractice\\mainmenuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5D33A58A-79E8-4C37-A7D0-0A0F119B0307}|ThirdProgramingPractice\\ThirdProgramingPractice.csproj|solutionrelative:thirdprogramingpractice\\mainmenuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5D33A58A-79E8-4C37-A7D0-0A0F119B0307}|ThirdProgramingPractice\\ThirdProgramingPractice.csproj|C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\thirdprogramingpractice\\db\\transaction\\mysqlcommand_transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5D33A58A-79E8-4C37-A7D0-0A0F119B0307}|ThirdProgramingPractice\\ThirdProgramingPractice.csproj|solutionrelative:thirdprogramingpractice\\db\\transaction\\mysqlcommand_transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5D33A58A-79E8-4C37-A7D0-0A0F119B0307}|ThirdProgramingPractice\\ThirdProgramingPractice.csproj|c:\\users\\administrator\\source\\repos\\tre-ia-praktin--darba\\thirdprogramingpractice\\db\\mysqlcommands_goal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5D33A58A-79E8-4C37-A7D0-0A0F119B0307}|ThirdProgramingPractice\\ThirdProgramingPractice.csproj|solutionrelative:thirdprogramingpractice\\db\\mysqlcommands_goal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5D33A58A-79E8-4C37-A7D0-0A0F119B0307}|ThirdProgramingPractice\\ThirdProgramingPractice.csproj|C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\thirdprogramingpractice\\mainmenuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5D33A58A-79E8-4C37-A7D0-0A0F119B0307}|ThirdProgramingPractice\\ThirdProgramingPractice.csproj|solutionrelative:thirdprogramingpractice\\mainmenuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5D33A58A-79E8-4C37-A7D0-0A0F119B0307}|ThirdProgramingPractice\\ThirdProgramingPractice.csproj|C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\thirdprogramingpractice\\db\\transaction\\mysqlcommand_expenseslist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5D33A58A-79E8-4C37-A7D0-0A0F119B0307}|ThirdProgramingPractice\\ThirdProgramingPractice.csproj|solutionrelative:thirdprogramingpractice\\db\\transaction\\mysqlcommand_expenseslist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5D33A58A-79E8-4C37-A7D0-0A0F119B0307}|ThirdProgramingPractice\\ThirdProgramingPractice.csproj|C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\thirdprogramingpractice\\db\\transaction\\mysqlcommands_incomelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5D33A58A-79E8-4C37-A7D0-0A0F119B0307}|ThirdProgramingPractice\\ThirdProgramingPractice.csproj|solutionrelative:thirdprogramingpractice\\db\\transaction\\mysqlcommands_incomelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5D33A58A-79E8-4C37-A7D0-0A0F119B0307}|ThirdProgramingPractice\\ThirdProgramingPractice.csproj|C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\thirdprogramingpractice\\db\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5D33A58A-79E8-4C37-A7D0-0A0F119B0307}|ThirdProgramingPractice\\ThirdProgramingPractice.csproj|solutionrelative:thirdprogramingpractice\\db\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5D33A58A-79E8-4C37-A7D0-0A0F119B0307}|ThirdProgramingPractice\\ThirdProgramingPractice.csproj|C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\thirdprogramingpractice\\transactionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5D33A58A-79E8-4C37-A7D0-0A0F119B0307}|ThirdProgramingPractice\\ThirdProgramingPractice.csproj|solutionrelative:thirdprogramingpractice\\transactionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5D33A58A-79E8-4C37-A7D0-0A0F119B0307}|ThirdProgramingPractice\\ThirdProgramingPractice.csproj|C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\thirdprogramingpractice\\db\\budget\\mysqlcommands_budget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5D33A58A-79E8-4C37-A7D0-0A0F119B0307}|ThirdProgramingPractice\\ThirdProgramingPractice.csproj|solutionrelative:thirdprogramingpractice\\db\\budget\\mysqlcommands_budget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5D33A58A-79E8-4C37-A7D0-0A0F119B0307}|ThirdProgramingPractice\\ThirdProgramingPractice.csproj|c:\\users\\administrator\\source\\repos\\tre-ia-praktin--darba\\thirdprogramingpractice\\db\\dbfillnote.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{5D33A58A-79E8-4C37-A7D0-0A0F119B0307}|ThirdProgramingPractice\\ThirdProgramingPractice.csproj|solutionrelative:thirdprogramingpractice\\db\\dbfillnote.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,113 +22,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MySQLCommands_Goal.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\ThirdProgramingPractice\\DB\\MySQLCommands_Goal.cs",
-              "RelativeDocumentMoniker": "ThirdProgramingPractice\\DB\\MySQLCommands_Goal.cs",
-              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\ThirdProgramingPractice\\DB\\MySQLCommands_Goal.cs",
-              "RelativeToolTip": "ThirdProgramingPractice\\DB\\MySQLCommands_Goal.cs",
-              "ViewState": "AQIAAIoAAAAAAAAAAAAAAKwAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T15:24:25.874Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MySqlCommand_transaction.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\ThirdProgramingPractice\\DB\\Transaction\\MySqlCommand_transaction.cs",
-              "RelativeDocumentMoniker": "ThirdProgramingPractice\\DB\\Transaction\\MySqlCommand_transaction.cs",
-              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\ThirdProgramingPractice\\DB\\Transaction\\MySqlCommand_transaction.cs",
-              "RelativeToolTip": "ThirdProgramingPractice\\DB\\Transaction\\MySqlCommand_transaction.cs",
-              "ViewState": "AQIAAKIAAAAAAAAAAAAAALsAAAA6AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T12:09:46.053Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "TransactionForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\ThirdProgramingPractice\\TransactionForm.cs",
-              "RelativeDocumentMoniker": "ThirdProgramingPractice\\TransactionForm.cs",
-              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\ThirdProgramingPractice\\TransactionForm.cs [Design]",
-              "RelativeToolTip": "ThirdProgramingPractice\\TransactionForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T12:25:36.215Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "MySqlCommands_Budget.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\ThirdProgramingPractice\\DB\\Budget\\MySqlCommands_Budget.cs",
-              "RelativeDocumentMoniker": "ThirdProgramingPractice\\DB\\Budget\\MySqlCommands_Budget.cs",
-              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\ThirdProgramingPractice\\DB\\Budget\\MySqlCommands_Budget.cs",
-              "RelativeToolTip": "ThirdProgramingPractice\\DB\\Budget\\MySqlCommands_Budget.cs",
-              "ViewState": "AQIAAJYAAAAAAAAAAAAAAK8AAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T12:12:10.483Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DataBase.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\ThirdProgramingPractice\\DB\\DataBase.cs",
-              "RelativeDocumentMoniker": "ThirdProgramingPractice\\DB\\DataBase.cs",
-              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\ThirdProgramingPractice\\DB\\DataBase.cs",
-              "RelativeToolTip": "ThirdProgramingPractice\\DB\\DataBase.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T05:53:51.114Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MySqlCommands_incomeList.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\ThirdProgramingPractice\\DB\\Transaction\\MySqlCommands_incomeList.cs",
-              "RelativeDocumentMoniker": "ThirdProgramingPractice\\DB\\Transaction\\MySqlCommands_incomeList.cs",
-              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\ThirdProgramingPractice\\DB\\Transaction\\MySqlCommands_incomeList.cs",
-              "RelativeToolTip": "ThirdProgramingPractice\\DB\\Transaction\\MySqlCommands_incomeList.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAAACwAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T11:55:26.372Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MySQLCommand_expensesList.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\ThirdProgramingPractice\\DB\\Transaction\\MySQLCommand_expensesList.cs",
-              "RelativeDocumentMoniker": "ThirdProgramingPractice\\DB\\Transaction\\MySQLCommand_expensesList.cs",
-              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\ThirdProgramingPractice\\DB\\Transaction\\MySQLCommand_expensesList.cs",
-              "RelativeToolTip": "ThirdProgramingPractice\\DB\\Transaction\\MySQLCommand_expensesList.cs",
-              "ViewState": "AQIAADoAAAAAAAAAAAAkwEEAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T11:55:00.088Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MainMenuForm.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\ThirdProgramingPractice\\MainMenuForm.cs",
-              "RelativeDocumentMoniker": "ThirdProgramingPractice\\MainMenuForm.cs",
-              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\ThirdProgramingPractice\\MainMenuForm.cs",
-              "RelativeToolTip": "ThirdProgramingPractice\\MainMenuForm.cs",
-              "ViewState": "AQIAAOoAAAAAAAAAAAAAAAYBAAA3AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T11:31:35.223Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MainMenuForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\ThirdProgramingPractice\\MainMenuForm.cs",
-              "RelativeDocumentMoniker": "ThirdProgramingPractice\\MainMenuForm.cs",
-              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\ThirdProgramingPractice\\MainMenuForm.cs [Design]",
-              "RelativeToolTip": "ThirdProgramingPractice\\MainMenuForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T11:31:17.269Z",
-              "EditorCaption": " [Design]"
+              "Title": "DBFillnote.txt",
+              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\ThirdProgramingPractice\\DB\\DBFillnote.txt",
+              "RelativeDocumentMoniker": "ThirdProgramingPractice\\DB\\DBFillnote.txt",
+              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\Tre-ia-praktin--darba\\ThirdProgramingPractice\\DB\\DBFillnote.txt",
+              "RelativeToolTip": "ThirdProgramingPractice\\DB\\DBFillnote.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-05-08T17:00:41.987Z",
+              "EditorCaption": ""
             }
           ]
         }

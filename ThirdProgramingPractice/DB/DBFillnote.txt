@@ -3,17 +3,62 @@
 CREATE TABLE `fri_db`.`account` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `Login` VARCHAR(45) NOT NULL,
-  `Paasword` VARCHAR(45) NOT NULL,
+  `Password` VARCHAR(45) NOT NULL,
   `Profile_ID` INT NULL,
   `UserInfo_ID` INT NULL,
   PRIMARY KEY (`ID`),
-  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC) VISIBLE);
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC));
 
+CREATE TABLE `fri_db`.`user info` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `Email` VARCHAR(45) NOT NULL,
+  `PhoneNumber` VARCHAR(45) NOT NULL,
+  `HomeAdress` VARCHAR(45) NOT NULL,
+  `RegData` DATE NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC));
 
+CREATE TABLE `fri_db`.`user profile` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `Name` VARCHAR(45) NOT NULL,
+  `Surname` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC));
 
+CREATE TABLE `fri_db`.`budget` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `Name` VARCHAR(45) NOT NULL,
+  `Expenses_ID` INT NULL,
+  `Income_ID` INT NULL,
+  `Amount` FLOAT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC));
 
+CREATE TABLE `fri_db`.`budgets` (
+  `account_ID` INT NOT NULL,
+  `budget_ID` VARCHAR(45) NOT NULL);
 
-  CREATE TABLE `fri_db`.`transaction` (
+CREATE TABLE `fri_db`.`incomea` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `Amount` VARCHAR(45) NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC));
+
+CREATE TABLE `fri_db`.`expensesa` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `Amount` VARCHAR(45) NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC));
+
+CREATE TABLE `fri_db`.`expenseslist` (
+  `ExpensesID` INT NOT NULL,
+  `TransactionID` INT NOT NULL);
+
+CREATE TABLE `fri_db`.`incomelist` (
+  `IncomeID` INT NOT NULL,
+  `TransactionID` INT NOT NULL);
+
+CREATE TABLE `fri_db`.`transaction` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(45) NOT NULL,
   `Amount` FLOAT NOT NULL,
@@ -21,27 +66,17 @@ CREATE TABLE `fri_db`.`account` (
   `Description` VARCHAR(45) NULL,
   `Date` DATE NOT NULL,
   PRIMARY KEY (`ID`),
-  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC) VISIBLE);
-
-  CREATE TABLE `fri_db`.`expenseslist` (
-  `ExpensesID` INT NOT NULL,
-  `TransactionID` INT NOT NULL);
-
-  CREATE TABLE `fri_db`.`incomelist` (
-  `IncomeID` INT NOT NULL,
-  `TransactionID` INT NOT NULL);
-
-  CREATE TABLE `fri_db`.`goals_list` (
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC));
+  
+CREATE TABLE `fri_db`.`goals_list` (
   `accountID` INT NOT NULL,
   `goalID` INT NOT NULL,
   UNIQUE INDEX `goalID_UNIQUE` (`goalID` ASC));
-
-  CREATE TABLE `fri_db`.`goal` (
+  
+CREATE TABLE `fri_db`.`goal` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(45) NOT NULL,
   `Amount` FLOAT NOT NULL,
   `Currently` FLOAT NULL,
   PRIMARY KEY (`ID`),
-  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC));
-
-
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC));  
