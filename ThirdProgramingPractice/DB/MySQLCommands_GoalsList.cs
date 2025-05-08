@@ -41,11 +41,6 @@ namespace ThirdProgramingPractice.DB
             return GoalsName;
         }
 
-
-
-
-
-
         private string GetGoalName(MySqlConnection connection, int GoalsID)
         {
             string QueryGetList = "SELECT `Name` FROM `goal` WHERE `ID` = @ID";
@@ -63,6 +58,32 @@ namespace ThirdProgramingPractice.DB
             }
 
             return GoalName;
+        }
+
+        public List<int> GiveGoalsIdList(MySqlConnection connection, int accountID)
+        {
+            string Query = "SELECT `goalID` FROM `goals_list` WHERER `accountID` = @accountID";
+            List<int> GoalID = new List<int>();
+
+            try
+            {
+                MySqlCommand GiveGoalsList = new MySqlCommand(Query, connection);
+                GiveGoalsList.Parameters.Add("@accountID", MySqlDbType.Int16).Value = accountID;
+
+                using (MySqlDataReader reader = GiveGoalsList.ExecuteReader())
+                {
+                    while(reader.Read())
+                    {
+                        GoalID.Add(Convert.ToInt16(reader[0]));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in MySQLCommands_GoalsList class.\nMethod GiveGoalsIdList().\nError message: " + ex.Message);
+            }
+
+            return GoalID;
         }
     }
 }

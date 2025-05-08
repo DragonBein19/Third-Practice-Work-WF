@@ -110,8 +110,11 @@ namespace ThirdProgramingPractice
             MySQLCommand_expensesList expensesList = new MySQLCommand_expensesList();
             MySqlCommands_incomeList incomeList = new MySqlCommands_incomeList();
 
+            dataBase.OpenConnection();
             List<string> ExpensesListArray = expensesList.GetTansactionList(connection, SelectedBudgetID);
             List<string> IncomeListArray = incomeList.GetTransactionList(connection, SelectedBudgetID);
+            dataBase.CloseConnection();
+
             ExpensesListBox.Items.AddRange(ExpensesListArray.ToArray());
             IncomeListBox.Items.AddRange(IncomeListArray.ToArray());
         }
@@ -135,7 +138,10 @@ namespace ThirdProgramingPractice
 
             ExpensesListBox.Items.Clear();
             IncomeListBox.Items.Clear();
+
+            dataBase.OpenConnection();
             FillExpensesIndcomeListBox(dataBase.GetConnection());
+            dataBase.CloseConnection();
         }
 
         /// <summary>
@@ -168,16 +174,16 @@ namespace ThirdProgramingPractice
             dataBase.OpenConnection();
 
             IncomeIDList = incomeIDList.GetTransctionIDList(dataBase.GetConnection(), SelectedBudgetID);
-            
-            for(int i = 0; i < IncomeIDList.Count; i++)
+
+            for (int i = 0; i < IncomeIDList.Count; i++)
             {
-                if(IncomeListBox.Text.ToString() == transaction.GetTransactionName(dataBase.GetConnection(), Convert.ToInt16(IncomeIDList[i])))
+                if (IncomeListBox.Text.ToString() == transaction.GetTransactionName(dataBase.GetConnection(), Convert.ToInt16(IncomeIDList[i])))
                 {
                     TransactionNameTextBox.Text = transaction.GetTransactionName(dataBase.GetConnection(), Convert.ToInt16(IncomeIDList[i]));
                     TransactionAmountTextBox.Text = transaction.GetTransactionAmount(dataBase.GetConnection(), Convert.ToInt16(IncomeIDList[i])).ToString();
                     DescriptionTextBox.Text = transaction.GetTransactionDescription(dataBase.GetConnection(), Convert.ToInt16(IncomeIDList[i]));
                     TransactionDateLabel.Text = "Transaction Date: " + transaction.GetTransactionDate(dataBase.GetConnection(), Convert.ToInt16(IncomeIDList[i])).ToString();
-                }               
+                }
             }
 
             dataBase.CloseConnection();
@@ -186,6 +192,21 @@ namespace ThirdProgramingPractice
         private void ExpensesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void GoalsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MySQLCommands_GoalsList goalsList = new MySQLCommands_GoalsList();
+
+            dataBase.OpenConnection();
+            List<int> TransactionID = goalsList.GiveGoalsIdList(dataBase.GetConnection(), accountID);
+
+            for(int i = 0; i < TransactionID.Count; i++)
+            {
+
+            }
+
+            dataBase.CloseConnection();
         }
     }
 }

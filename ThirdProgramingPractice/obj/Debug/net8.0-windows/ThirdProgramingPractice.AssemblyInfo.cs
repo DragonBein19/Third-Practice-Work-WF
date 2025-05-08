@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ThirdProgramingPractice")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5a3463f5aa29c66c1b4e39ab79c2cdd162e42590")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6643a3eb3115db04a3470497d669887acbdd81fd")]
 [assembly: System.Reflection.AssemblyProductAttribute("ThirdProgramingPractice")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ThirdProgramingPractice")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
